@@ -2,8 +2,6 @@ import java.util.Scanner;
 import java.io.File;
 import java.util.HashMap;
 import java.util.ArrayList;
-import java.util.Random;
-import java.io.*;
 
 /**
  * Class that contains helper methods for the Review Lab
@@ -162,17 +160,18 @@ public class Review {
       return randomNegativeAdj();
     }
   }
-  public static double TotalSentiment(String sentence){
+  public static String TotalSentiment(String sentence){
     double total = 0;
-   String text = textToString(sentence);
+    String text = textToString(sentence);
     String no_punc = "";
     int begin = 0;
-   while (begin<text.length()) {
+   while (text.indexOf(" ")!=-1) {
      no_punc += removePunctuation(text.substring(begin, text.indexOf(" ")));
-     begin = text.indexOf(" ");
+     begin = text.indexOf(" ")+1;
    }
+   return no_punc;
 
-return 0.0;
+
    }
 
 
