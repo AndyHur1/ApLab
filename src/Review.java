@@ -160,16 +160,19 @@ public class Review {
       return randomNegativeAdj();
     }
   }
-  public static String TotalSentiment(String sentence){
+  public static double TotalSentiment(String sentence){
     double total = 0;
-    String text = textToString(sentence);
-    String no_punc = "";
+    String text = textToString(sentence)+" ";
+
     int begin = 0;
-   while (text.indexOf(" ")!=-1) {
-     no_punc += removePunctuation(text.substring(begin, text.indexOf(" ")));
-     begin = text.indexOf(" ")+1;
+    int end;
+   while (text.indexOf(" ",begin+1)!=-1) {
+     end = text.indexOf(" ",begin+1);
+     total+=sentimentVal(removePunctuation(text.substring(begin,end)));
+     begin = end;
+
    }
-   return no_punc;
+   return total;
 
 
    }
