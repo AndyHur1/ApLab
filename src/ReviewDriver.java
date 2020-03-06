@@ -10,6 +10,7 @@ public class ReviewDriver {
         System.out.println(Review.sentimentVal("smile"));
         double num =sentimentVal("warm");
 
-        System.out.println(Review.TotalSentiment("26WestReview.txt"));
+        System.out.println(Review.totalSentiment("26WestReview.txt"));
+
     }
 }
